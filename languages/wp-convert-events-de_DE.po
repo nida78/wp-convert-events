@@ -1,0 +1,132 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Convert Events 1.0\n"
+"POT-Creation-Date: 2016-12-30 23:29+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Nico Danneberg <nico@danneberg.de>\n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;__ngettext:1,2;_n:1,2;"
+"__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;"
+"_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-WPHeader: wp-convert-events.php\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: wp-convert-events.php:28
+msgid "Sorry, but the convert of this event failed!"
+msgstr "Entschuldigung, aber dieser Termin konnte nicht konvertiert werden!"
+
+#: wp-convert-events.php:34 wp-convert-events.php:35 wp-convert-events.php:48
+msgid "Convert Events"
+msgstr "Konvertiere Termine"
+
+#: wp-convert-events.php:51
+msgid "Choose category to convert events from:"
+msgstr "Wähle eine Kategorie aus, um Beiträge zu laden:"
+
+#: wp-convert-events.php:53
+msgid "-- choose --"
+msgstr "-- auswählen --"
+
+#: wp-convert-events.php:65
+msgid "Load posts"
+msgstr "Beiträge laden"
+
+#: wp-convert-events.php:89
+msgid "ID"
+msgstr "ID"
+
+#: wp-convert-events.php:90
+msgid "Post Title"
+msgstr "Beitragstitel"
+
+#: wp-convert-events.php:91
+msgid "Event Title"
+msgstr "Termintitel"
+
+#: wp-convert-events.php:92
+msgid "Description"
+msgstr "Beschreibung"
+
+#: wp-convert-events.php:93
+msgid "Category"
+msgstr "Kategorie"
+
+#: wp-convert-events.php:94
+msgid "Link"
+msgstr "Link"
+
+#: wp-convert-events.php:95
+msgid "Start"
+msgstr "Start"
+
+#: wp-convert-events.php:96
+msgid "End"
+msgstr "Ende"
+
+#: wp-convert-events.php:97
+msgid "Time"
+msgstr "Zeit"
+
+#: wp-convert-events.php:99
+msgid "Action"
+msgstr "Aktion"
+
+#: wp-convert-events.php:100
+msgid "filter already converted events"
+msgstr "filtere bereits konvertierte Termine"
+
+#: wp-convert-events.php:133
+msgid "convert"
+msgstr "konvertieren"
+
+#: wp-convert-events.php:136
+msgid "update"
+msgstr "aktualisieren"
+
+#. Plugin Name of the plugin/theme
+msgid "WP Convert Events"
+msgstr "WP Convert Events"
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/nida78/wp-convert-events"
+msgstr "https://github.com/nida78/wp-convert-events"
+
+#. Description of the plugin/theme
+msgid ""
+"Helps to convert events created by the old and no longer supported [Event "
+"Calendar Plugin](http://wpcal.firetree.net) to entries of the modern "
+"[Calendar Plugin](https://wordpress.org/plugins/calendar/)."
+msgstr ""
+"Hilft Termine, die mit dem alten, nicht länger unterstützten [Event Calendar "
+"Plugin](http://wpcal.firetree.net) erzeugt wurden, in Einträge des modernen "
+"[Calendar Plugin](https://wordpress.org/plugins/calendar/) zu konvertieren."
+
+#. Author of the plugin/theme
+msgid "nida78"
+msgstr "nida78"
+
+#. Author URI of the plugin/theme
+msgid "http://n1da.net"
+msgstr "http://n1da.net"
+
+#~ msgid "Desciption"
+#~ msgstr "Beschreibung"
+
+#~ msgid ""
+#~ "Helps to covert events created by the old and no longer supported [Event "
+#~ "Calendar Plugin](http://wpcal.firetree.net) to entries of the modern "
+#~ "[Calendar Plugin](https://wordpress.org/plugins/calendar/)."
+#~ msgstr ""
+#~ "Hilft Termine, die mit dem alten, nicht länger unterstützten [Event "
+#~ "Calendar Plugin](http://wpcal.firetree.net) erzeugt wurden, in Einträge "
+#~ "des modernen [Calendar Plugin](https://wordpress.org/plugins/calendar/) "
+#~ "zu konvertieren."
