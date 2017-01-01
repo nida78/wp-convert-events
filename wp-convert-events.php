@@ -3,7 +3,7 @@
 Plugin Name: WP Convert Events
 Plugin URI: https://github.com/nida78/wp-convert-events
 Description: Helps to convert events created by the old and no longer supported [Event Calendar Plugin](http://wpcal.firetree.net) to entries of the modern [Calendar Plugin](https://wordpress.org/plugins/calendar/).
-Version: 1.0
+Version: 1.1
 Author: nida78
 Author URI: http://n1da.net
 License: GPLv2 or later
@@ -12,7 +12,7 @@ Text Domain: wp-convert-events
 
 load_plugin_textdomain( 'wp-convert-events', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
-$wpce_version = 1.0;
+$wpce_version = "1.1";
 
 add_action( 'admin_menu', 'wpce_init' );
 add_action( 'wp_ajax_wpce_convert_event', 'wpce_ajax_convert_event' );
@@ -116,29 +116,29 @@ function wpce_converter_page() {
                                 $ec3_dates = $wpdb->get_results( $wpdb->prepare( $ec3_select, get_permalink(), get_the_ID() ) );
                                 $ec3_dates_count = count( $ec3_dates );
                     ?>
-                                <tr id="row-<?php the_ID(); ?>">
+                                <tr id="row_<?php the_ID(); ?>_0">
                                     <td rowspan="<?php echo ( $ec3_dates_count == 0 ) ? 1 : $ec3_dates_count; ?>"><?php the_ID(); ?></td>
                                     <td rowspan="<?php echo ( $ec3_dates_count == 0 ) ? 1 : $ec3_dates_count; ?>"><?php the_title(); ?></td>
                                     <?php if( $ec3_dates_count == 0 ) { ?>
                                         <td colspan="9">&nbsp;</td>
                                     <?php } else { ?>
-                                        <td><?php foreach( $ec3_dates as $ec3_date ) { ?>
-                                            <input type="text" name="cal_title_<?php the_ID(); ?>" id="cal_title_<?php the_ID(); ?>" size="40" maxlength="30" value="<?php echo substr( get_the_title(), 0, 30 ); ?>" /></td>
-                                            <td><textarea name="cal_desc_<?php the_ID(); ?>" id="cal_desc_<?php the_ID(); ?>"><?php echo wp_strip_all_tags( get_the_excerpt(), true ); ?></textarea></td>
-                                            <td><select name="cal_cat_<?php the_ID(); ?>" id="cal_cat_<?php the_ID(); ?>"><?php echo $cal_cat_options; ?></select></td>
-                                            <td><input type="text" name="cal_link_<?php the_ID(); ?>" id="cal_link_<?php the_ID(); ?>" size="40" value="<?php the_permalink(); ?>" /></td>
-                                            <td><input type="text" name="cal_start_<?php the_ID(); ?>" id="cal_start_<?php the_ID(); ?>" size="12" value="<?php echo $ec3_date->start_date; ?>" /></td>
-                                            <td><input type="text" name="cal_end_<?php the_ID(); ?>" id="cal_end_<?php the_ID(); ?>" size="12" value="<?php echo $ec3_date->end_date; ?>" /></td>
-                                            <td><input type="text" name="cal_time_<?php the_ID(); ?>" id="cal_time_<?php the_ID(); ?>" size="12" value="<?php echo ( ( $ec3_date->allday == 1 ) ? '00:00:00' : $ec3_date->start_time ); ?>" /></td>
-                                            <td><input type="button" name="cal_action_convert_<?php the_ID(); ?>" id="cal_action_convert_<?php the_ID(); ?>" value="<?php _e( 'convert', 'wp-convert-events'); ?>" class="button" onclick="wpce_convert_event( <?php the_ID(); ?>, -1 );" /></td>
+                                        <td><?php foreach( $ec3_dates as $i => $ec3_date ) { ?>
+                                            <input type="text" name="cal_title_<?php the_ID(); echo '_' . $i; ?>" id="cal_title_<?php the_ID(); echo '_' . $i; ?>" size="40" maxlength="30" value="<?php echo substr( get_the_title(), 0, 30 ); ?>" /></td>
+                                            <td><textarea name="cal_desc_<?php the_ID(); echo '_' . $i; ?>" id="cal_desc_<?php the_ID(); echo '_' . $i; ?>"><?php echo wp_strip_all_tags( get_the_excerpt(), true ); ?></textarea></td>
+                                            <td><select name="cal_cat_<?php the_ID(); echo '_' . $i; ?>" id="cal_cat_<?php the_ID(); echo '_' . $i; ?>"><?php echo $cal_cat_options; ?></select></td>
+                                            <td><input type="text" name="cal_link_<?php the_ID(); echo '_' . $i; ?>" id="cal_link_<?php the_ID(); echo '_' . $i; ?>" size="40" value="<?php the_permalink(); ?>" /></td>
+                                            <td><input type="text" name="cal_start_<?php the_ID(); echo '_' . $i; ?>" id="cal_start_<?php the_ID(); echo '_' . $i; ?>" size="12" value="<?php echo $ec3_date->start_date; ?>" /></td>
+                                            <td><input type="text" name="cal_end_<?php the_ID(); echo '_' . $i; ?>" id="cal_end_<?php the_ID(); echo '_' . $i; ?>" size="12" value="<?php echo $ec3_date->end_date; ?>" /></td>
+                                            <td><input type="text" name="cal_time_<?php the_ID(); echo '_' . $i; ?>" id="cal_time_<?php the_ID(); echo '_' . $i; ?>" size="12" value="<?php echo ( ( $ec3_date->allday == 1 ) ? '00:00:00' : $ec3_date->start_time ); ?>" /></td>
+                                            <td><input type="button" name="cal_action_convert_<?php the_ID(); echo '_' . $i; ?>" id="cal_action_convert_<?php the_ID(); echo '_' . $i; ?>" value="<?php _e( 'convert', 'wp-convert-events'); ?>" class="button" onclick="wpce_convert_event( '<?php the_ID(); echo '_' . $i; ?>', -1 );" /></td>
                                             <?php
                                                 if( $ec3_date->event_id > 0 ) {
-                                                    echo '<td class="btn-update"><input type="button" name="cal_action_update_<?php the_ID(); ?>" id="cal_action_update_<?php the_ID(); ?>" value="' . __( 'update', 'wp-convert-events' ) . '" class="button" onclick="wpce_convert_event( ' . get_the_ID() . ', ' . $ec3_date->event_id . ' );" />';
+                                                    echo '<td class="btn-update"><input type="button" name="cal_action_update_' . get_the_ID() . '_' . $i . '" id="cal_action_update_' . get_the_ID() . '_' . $i . '" value="' . __( 'update', 'wp-convert-events' ) . '" class="button" onclick="wpce_convert_event( \'' . get_the_ID() . '_' . $i . '\', ' . $ec3_date->event_id . ' );" />';
                                                 } else {
                                                     echo '<td>&nbsp;';
                                                 }
                                                 if( $ec3_date !== end( $ec3_dates ) ) {
-                                                    echo '</td></tr><tr><td>';
+                                                    echo '</td></tr><tr id="row_' . get_the_ID() . '_' . ( $i + 1 ) . '"><td>';
                                                 }
                                             } ?></td>
                                     <?php } ?>

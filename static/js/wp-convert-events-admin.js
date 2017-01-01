@@ -23,7 +23,7 @@ function wpce_convert_event( eid, cid ) {
         if( data[ 'code' ] == -1 ) {
             alert( wp_wiki_tooltip_admin.alert_test_failed );
         } else {
-            $wpcej( "#row-" + data[ 'code' ] ).css( "background-color", "#090" );
+            $wpcej( "#row_" + data[ 'code' ] ).css( "background-color", "#090" );
         }
     });
 }
